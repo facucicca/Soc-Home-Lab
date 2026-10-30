@@ -10,4 +10,4 @@ Laboratorio personal para practicar tareas de un analista SOC Tier 1: monitoreo,
 | 02 | [SIEM con Wazuh y detección propia](./lab-02-wazuh) | Servidor Wazuh en Ubuntu, agente en Windows y regla propia sobre eventos de Sysmon |
 ## Herramientas
 
-VirtualBox, Windows 11, Sysmon, PowerShell, el Visor de eventos de Windows, Wazuh, Ubuntu Server. Próximamente: Atomic Red Team y AWS.
+VirtualBox, Windows 11, Sysmon, PowerShell, WindowsVisualEvent, Wazuh, Ubuntu Server. Próximamente: Atomic Red Team y AWS.
