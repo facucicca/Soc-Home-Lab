@@ -59,14 +59,14 @@ En `local_rules.xml` (Server management → Rules → Manage rules files) agregu
 
 La regla parte de los eventos de creación de proceso de Sysmon (ID 1) y exige dos condiciones: que el programa sea `notepad.exe` y que su proceso padre sea `cmd.exe`. Después reinicié el manager para que se cargara.
 
-![Regla 100100 en local_rules.xml](<img width="1414" height="623" alt="image" src="https://github.com/user-attachments/assets/1ffff66b-844f-41a4-8744-f8423847c679" />
+![Regla 100100 en local_rules.xml] (<img width="1414" height="623" alt="image" src="https://github.com/user-attachments/assets/1ffff66b-844f-41a4-8744-f8423847c679" />
 )
 
 ### 6. Prueba
 En la VM de Windows abrí `cmd` y escribí `notepad`. En **Threat Hunting → Events** apareció la alerta de la regla `100100` (nivel 5).
 
-![Alerta de la regla 100100](<img width="1568" height="561" alt="image" src="https://github.com/user-attachments/assets/ef4ce7cd-8069-4955-9f86-8d6966d07514" />
-)
+![Alerta de la regla 100100]<img width="1568" height="561" alt="image" src="https://github.com/user-attachments/assets/ef4ce7cd-8069-4955-9f86-8d6966d07514" />
+
 
 ## Análisis
 
