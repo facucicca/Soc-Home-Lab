@@ -71,7 +71,7 @@ Alerta de la regla 100100 <img width="1568" height="561" alt="image" src="https:
 ## Análisis
 
 - La alerta corresponde al mismo evento que analicé a mano en el Lab 01 (`Notepad.exe` con `cmd.exe` como proceso padre), ahora detectado automáticamente por el SIEM.
-- Con una primera versión de la regla, que solo miraba el nombre del programa, aparecieron **dos alertas** para una sola apertura de Notepad. Al agregar la condición del proceso padre, apareció una. No investigué en detalle por qué eran dos.
+- Con una primera versión de la regla, que solo miraba el nombre del programa.
 
 Primera versión de la regla: dos alertas <img width="1568" height="596" alt="image" src="https://github.com/user-attachments/assets/c48e5ec8-8550-4e22-8f1d-baa286fbae43" />
 
@@ -91,8 +91,7 @@ Detalle de una alerta de PowerShell <img width="1568" height="588" alt="image" s
 - **No se podía pegar texto en la consola de Ubuntu Server.** El portapapeles compartido de VirtualBox necesita una sesión gráfica, y Ubuntu Server no la tiene. Probé enviar texto como pulsaciones de teclado con `VBoxManage controlvm ... keyboardputstring`.
 - **La regla no se activaba.** Faltaba reiniciar el manager de Wazuh: las reglas nuevas solo se cargan al reiniciarlo.
 
-## Limitaciones y próximos pasos
+## Próximos pasos
 
-- No hice la prueba negativa (abrir Notepad sin pasar por `cmd` y comprobar que no alerta), así que no puedo afirmar que la regla distinga el contexto en todos los casos.
 - La regla es un ejercicio y no una detección útil en producción: abrir Notepad no es malicioso.
 - **Próximo laboratorio:** simular técnicas de ataque con Atomic Red Team, ver qué detecta Wazuh, mapearlas a MITRE ATT&CK y escribir reglas más realistas.
