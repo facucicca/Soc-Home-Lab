@@ -59,23 +59,27 @@ En `local_rules.xml` (Server management → Rules → Manage rules files) agregu
 
 La regla parte de los eventos de creación de proceso de Sysmon (ID 1) y exige dos condiciones: que el programa sea `notepad.exe` y que su proceso padre sea `cmd.exe`. Después reinicié el manager para que se cargara.
 
-![Regla 100100 en local_rules.xml](regla-100100.png)
+![Regla 100100 en local_rules.xml](<img width="1414" height="623" alt="image" src="https://github.com/user-attachments/assets/1ffff66b-844f-41a4-8744-f8423847c679" />
+)
 
 ### 6. Prueba
 En la VM de Windows abrí `cmd` y escribí `notepad`. En **Threat Hunting → Events** apareció la alerta de la regla `100100` (nivel 5).
 
-![Alerta de la regla 100100](alerta-100100.png)
+![Alerta de la regla 100100](<img width="1568" height="561" alt="image" src="https://github.com/user-attachments/assets/ef4ce7cd-8069-4955-9f86-8d6966d07514" />
+)
 
 ## Análisis
 
 - La alerta corresponde al mismo evento que analicé a mano en el Lab 01 (`Notepad.exe` con `cmd.exe` como proceso padre), ahora detectado automáticamente por el SIEM.
 - Con una primera versión de la regla, que solo miraba el nombre del programa, aparecieron **dos alertas** para una sola apertura de Notepad. Al agregar la condición del proceso padre, apareció una. No investigué en detalle por qué eran dos.
 
-![Primera versión de la regla: dos alertas](alerta-100100-v1.png)
+![Primera versión de la regla: dos alertas](<img width="1568" height="596" alt="image" src="https://github.com/user-attachments/assets/c48e5ec8-8550-4e22-8f1d-baa286fbae43" />
+)
 
 - En el panel también aparecen alertas repetidas de las reglas `92205`, `92066` y `92021` (PowerShell y `SecEdit.exe`) sin que yo haya ejecutado nada. Al abrir una de ellas vi que es un evento de **creación de archivo** de Sysmon (ID 11): PowerShell de 32 bits (`SysWOW64`), ejecutado como `NT AUTHORITY\SYSTEM`, crea el archivo `__PSScriptPolicyTest_*.ps1` en `C:\Windows\SystemTemp`. Mi hipótesis es que lo generan los chequeos del propio agente de Wazuh, pero **no la comprobé**: queda pendiente revisar el `parentImage` de esos eventos.
 
-![Detalle de una alerta de PowerShell](alerta-powershell-92205.png)
+![Detalle de una alerta de PowerShell](<img width="1568" height="588" alt="image" src="https://github.com/user-attachments/assets/54e858b6-0d5e-4e74-998b-22efe219b413" />
+)
 
 - Wazuh solo muestra como alerta los eventos que coinciden con alguna regla. Por eso la actividad normal, como abrir Notepad, no aparecía hasta que escribí la regla.
 
