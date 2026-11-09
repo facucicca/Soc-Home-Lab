@@ -7,7 +7,7 @@ Laboratorio personal para practicar tareas de un analista SOC Tier 1: monitoreo,
 | # | Laboratorio | Qué cubre |
 |---|---|---|
 | 01 | [Monitoreo de procesos con Sysmon](./lab-sysmon01) | VM con Windows 11, instalación de Sysmon y análisis de eventos de creación de procesos |
-| 02 | [SIEM con Wazuh y detección propia](./lab-02-wazuh) | Servidor Wazuh en Ubuntu, agente en Windows y regla propia sobre eventos de Sysmon |
+| 02 | [SIEM con Wazuh y detección propia](./lab-wazuh02) | Servidor Wazuh en Ubuntu, agente en Windows y regla propia sobre eventos de Sysmon |
 ## Herramientas
 
 VirtualBox, Windows 11, Sysmon, PowerShell, WindowsVisualEvent, Wazuh, Ubuntu Server. Próximamente: Atomic Red Team y AWS.
